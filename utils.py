@@ -1,0 +1,3 @@
+def getFileAffixes(fileName: str):
+    
+    
