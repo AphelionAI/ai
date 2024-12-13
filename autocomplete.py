@@ -20,22 +20,7 @@ Ignore jetbrains for the moment, get everything working for VSCode and then move
 """
 PSEUDO:
 
-
+what the pseugma
 
 
 """
-
-
-import model
-
-class autoCompleter:
-    def __init__(self, model, useFileAffixes: bool, debounceDelay: int):
-        """
-        AutoComplete class for Aphelion tab auto code completion.
-
-        model: any -> The LLM model used for code auto-completion
-        useFileAffixes: bool -> Use the current file prefix/suffix for predictions
-        debounceDelay: bool -> The time (in ms) for the debounce delay
-        """
-
-    def autoComplete(self, model)
