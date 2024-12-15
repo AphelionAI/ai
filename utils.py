@@ -16,3 +16,11 @@ def showRetrievedContext(query: str, retriever: Retriever):
     for context in context_list:
         print(context.text, end = '\n\n')
     return
+
+def convertRetrievedContext(ctx_list):
+    string = ""
+
+    for i, ctx in enumerate(ctx_list):
+        string.join(i + 1 + ". " + ctx.text + '\n\n')
+
+    return string

@@ -13,8 +13,6 @@ def buildRetriever(directory: str, k: int):
             for line in file.readlines():
                 lines.append(line)
 
-    print(len(lines))
-
     vector_store.buildIndexFromChunks(chunks = lines)
     retriever = Retriever(vector_store, k)
     return retriever
