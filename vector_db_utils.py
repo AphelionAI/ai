@@ -8,25 +8,22 @@ from llama_index.core import Settings
 from dotenv import load_dotenv
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from transformers import pipeline as pl
-
 import faiss
-import os
-import sys
-import torch
-import pandas as pd
 
 
-Settings.embed_model = HuggingFaceEmbedding()
+ # Add MistralCode and Ollama embeddings
 # This is temporary, make them environment variables or whatever the hell they are called, like configuration file whatsamacalled
 EMBED_DIMENSION = 384
 
 
 class VectorStore: # Add options for different indexes and different embedding models
-    def __init__(self):
+    def __init__(self, embedding_model, embedding_dim: int): 
         super().__init__()
-        self.vector_store = FaissVectorStore(faiss_index=faiss.IndexFlatL2(EMBED_DIMENSION))
+        Settings.embed_model = embedding_model
+        self.vector_store = FaissVectorStore(faiss_index=faiss.IndexFlatL2(embedding_dim))
         self.storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
         self.index = None
+
         # Don't use ingestion pipeline and whatever, look at docs and do it manually cause ingestion pipeline is cringe
         # self.vector_store.add()
 

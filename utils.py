@@ -1,5 +1,24 @@
 import glob
 from retriever import Retriever
+from transformers import AutoTokenizer
+
+
+def getTokenizerForModel(model_name: str, model_path: str):
+    if model_name == 'llama':
+        
+        return AutoTokenizer.from_pretrained(model_path)
+    
+    elif model_name == 'mistral':
+
+        return None # Do later
+    
+    else:
+        raise Exception('Model name/type not supported, please choose from Mistral or OLlama')
+    
+
+def countTokensInChunk(tokenizer, chunk: str) -> int:
+    return len(tokenizer.tokenize(chunk))
+
 
 def getPyFiles(directory: str, recursive=True):
     pattern = f'{directory}/**/*'
