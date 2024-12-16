@@ -2,7 +2,7 @@ from utils import getTokenizerForModel, countTokensInChunk
 
 
 class Chunker:
-    def __init__(self, model_name: str, model_path: str, max_chunk_size: int, overlap: int):
+    def __init__(self, model_name: str, model_path: str, max_chunk_size: int, overlap: int = 0):
         """
         max_chunk_size is measured in tokens in the chosen 
         """
@@ -12,17 +12,15 @@ class Chunker:
         self.overlap = overlap
 
 
-    def buildChunks(self, file_path: str): 
+    def buildChunks(self, file_path: str, chunks: list): 
         # Add support for single lines that are longer than the token count
         # + Add support for overlap
         lines = open(file_path, 'r').readlines()
-        chunks = []
         current_chunk = ""
         
         token_count = 0
 
         for line in lines:
-            print(lines)
             if token_count + countTokensInChunk(self.tokenizer, line) > self.max_chunk_size - 1:
                 chunks.append(current_chunk)
                 current_chunk = line

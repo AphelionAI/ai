@@ -34,6 +34,7 @@ def showRetrievedContext(query: str, retriever: Retriever):
     context_list = retriever.retrieve(query)
     for context in context_list:
         print(context.text, end = '\n\n')
+        print('-----------------------------------------------')
     return
 
 def convertRetrievedContext(ctx_list):

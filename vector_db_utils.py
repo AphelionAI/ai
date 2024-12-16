@@ -11,9 +11,8 @@ from transformers import pipeline as pl
 import faiss
 
 
- # Add MistralCode and Ollama embeddings
+# Add MistralCode and Ollama embeddings
 # This is temporary, make them environment variables or whatever the hell they are called, like configuration file whatsamacalled
-EMBED_DIMENSION = 384
 
 
 class VectorStore: # Add options for different indexes and different embedding models
