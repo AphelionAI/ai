@@ -10,7 +10,7 @@ def getTokenizerForModel(model_name: str, model_path: str):
     
     elif model_name == 'mistral':
 
-        return None # Do later
+        return AutoTokenizer.from_pretrained(model_path)
     
     else:
         raise Exception('Model name/type not supported, please choose from Mistral or OLlama')

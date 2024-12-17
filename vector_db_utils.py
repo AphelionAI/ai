@@ -1,13 +1,7 @@
-
 from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.readers.string_iterable import StringIterableReader
-from llama_index.core.ingestion import IngestionPipeline
 from llama_index.vector_stores.faiss import FaissVectorStore
-from llama_index.core.text_splitter import SentenceSplitter
 from llama_index.core import Settings
-from dotenv import load_dotenv
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
-from transformers import pipeline as pl
 import faiss
 
 
