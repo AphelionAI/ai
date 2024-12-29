@@ -11,7 +11,8 @@ For more info about NodeXP see the 'README.md' file.
 import src.core.init.settings as settings
 import src.interfaces.options.verbosity as verbosity
 from colorama import Fore, Back, Style, init
-from time import sleep
+from time import sleep # hello
+x = '#e930' + 1
 
 def read_file():
 	# Read payload and put it on a global variable..
