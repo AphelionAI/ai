@@ -10,7 +10,6 @@ const vscode = require('vscode');
  */
 function activate(context) {
 
-
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Aphelion autocomplete now active');
@@ -18,9 +17,16 @@ function activate(context) {
 
 	let disposable = vscode.commands.registerCommand('aphelion.helloWorld', function () {
 		// The code you place here will be executed every time your command is executed
-
+		var panel = vscode.window.createWebviewPanel(
+			'toolbox',
+			'Aphelion Chat',
+			vscode.ViewColumn.One,
+			{}
+		);
+		panel.webview.html = getWebviewContent();
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hello World from aphelion!');
+
 	});
 
 	const provider = {
@@ -43,6 +49,19 @@ function activate(context) {
 	vscode.languages.registerInlineCompletionItemProvider({ pattern: '**' }, provider);
 
 	context.subscriptions.push(disposable);
+}
+
+function getWebviewContent() {
+	return `<!DOCTYPE html>
+	<html lang ="en">
+		<head>
+			<meta charset="UTF-8" />
+		</head>
+		<body>
+			<h1>Aphelion Chat</h1>
+		</body>
+	</html>
+	`
 }
 
 // This method is called when your extension is deactivated

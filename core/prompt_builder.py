@@ -17,3 +17,6 @@ def codeBaseQuery(working_dir: str, k: int, query: str):
     ctx = convertRetrievedContext(ctx)
 
     return f"Using relevant code context, conceptually answer the following technical question about the code.\nQuestion: {query}\nAnswer: "
+
+def findActionableCommentsPrompt():
+    return f"Sort through the following code comments and determine whether the programmer who wrote them intended for further revision of the code."

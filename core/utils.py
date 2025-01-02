@@ -1,6 +1,7 @@
 import glob
 from retriever import Retriever
 from transformers import AutoTokenizer
+import re
 
 
 def getTokenizerForModel(model_name: str, model_path: str):
